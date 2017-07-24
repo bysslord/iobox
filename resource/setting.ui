@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>360</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IoBoxSetting</string>
+  </property>
+  <widget class="QGroupBox" name="groupBoxAccount">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>338</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>账号</string>
+   </property>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>321</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButtonAccount">
+       <property name="text">
+        <string>登录</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelAccount">
+       <property name="text">
+        <string>账号</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="labelSpace">
+       <property name="text">
+        <string>空间</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QProgressBar" name="progressBarSpace">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="maximum">
+        <number>0</number>
+       </property>
+       <property name="value">
+        <number>-1</number>
+       </property>
+       <property name="textVisible">
+        <bool>true</bool>
+       </property>
+       <property name="invertedAppearance">
+        <bool>false</bool>
+       </property>
+       <property name="textDirection">
+        <enum>QProgressBar::TopToBottom</enum>
+       </property>
+       <property name="format">
+        <string>%p/%mGB</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>118</y>
+     <width>338</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>设置</string>
+   </property>
+   <zorder>groupBoxAccount</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
