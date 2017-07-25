@@ -6,12 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
+    <width>359</width>
     <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>IoBoxSetting</string>
+   <string>设置</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../logo.png</normaloff>../logo.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QGroupBox" name="groupBoxAccount">
    <property name="geometry">
@@ -31,17 +41,10 @@
       <x>10</x>
       <y>20</y>
       <width>321</width>
-      <height>71</height>
+      <height>77</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="1">
-      <widget class="QPushButton" name="pushButtonAccount">
-       <property name="text">
-        <string>登录</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="labelAccount">
        <property name="text">
@@ -81,6 +84,13 @@
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButtonAccount">
+       <property name="text">
+        <string>登录</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -96,10 +106,16 @@
      <height>231</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="title">
     <string>设置</string>
    </property>
-   <zorder>groupBoxAccount</zorder>
+   <zorder>pushButtonAccount</zorder>
   </widget>
  </widget>
  <resources/>
