@@ -1,0 +1,34 @@
+
+* {
+    background-color: white;
+    font: 9pt "Microsoft YaHei UI";
+    color: #1678C2;
+}
+
+QPushButton, QToolButton {
+    background-color: #1678C2;
+    border-radius: 4px 4px;
+    color: #E6F0F8;
+    padding: 4px 0 4px 0;
+}
+
+QPushButton:hover, QToolButton:hover {
+    background-color: #35A2F4;
+}
+
+QCheckBox:indicator:checked {
+    selection-color: #1678C2;
+}
+
+QRadioButton {
+    color: #1678C2;
+}
+
+QProgressBar {
+    color: #1678C2;
+    text-align: center;
+}
+
+QProgressBar:chunk {
+    background-color: #1678C2;
+}

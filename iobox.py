@@ -103,7 +103,7 @@ class SettingBox(QDialog):
 
     def check_account(self):
         if self.username:
-            self.pushButtonAccount.setText(f"切换账户:{self.username}")
+            self.pushButtonAccount.setText(f"注销:{self.username}")
             self.progressBarSpace.setVisible(True)
             self.progressBarSpace.setDisabled(False)
             self.progressBarSpace.setMaximum(50)
@@ -120,8 +120,13 @@ class SettingBox(QDialog):
         return self.settings.value('username', False)
 
     def login(self):
-        res = LoginBox(self)
-        res.show()
+        if self.username:
+            self.settings.remove('username')
+            self.settings.remove('password')
+            self.check_account()
+        else:
+            res = LoginBox(self)
+            res.show()
 
     def closeEvent(self, event: QCloseEvent):
         event.ignore()
