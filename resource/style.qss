@@ -1,7 +1,7 @@
 
 * {
     background-color: white;
-    font: 9pt "Microsoft YaHei UI";
+    font: 12pt "Microsoft YaHei UI";
     color: #1678C2;
 }
 
@@ -10,6 +10,11 @@ QPushButton, QToolButton {
     border-radius: 4px 4px;
     color: #E6F0F8;
     padding: 4px 0 4px 0;
+    width: 40px;
+}
+
+QPushButton#pushButtonAccount {
+    margin-left: 0px;
 }
 
 QPushButton:hover, QToolButton:hover {
@@ -18,6 +23,10 @@ QPushButton:hover, QToolButton:hover {
 
 QCheckBox:indicator:checked {
     selection-color: #1678C2;
+}
+
+QGroupBox:box {
+    background-color: white;
 }
 
 QRadioButton {

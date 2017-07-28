@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 from PyQt5 import Qt
+from PyQt5.Qt import QThread, QTimerEvent
 from PyQt5.QtGui import QCloseEvent
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QIcon
@@ -11,6 +12,8 @@ from PyQt5.QtWidgets import QSystemTrayIcon, QApplication, QMenu, \
 
 
 __author__ = 'xiwei'
+
+TIMER_RELOAD = 9
 
 
 class SysTray(QSystemTrayIcon):
@@ -85,15 +88,29 @@ class LoginBox(QDialog):
 
 class SettingBox(QDialog):
     progressBarSpace: QProgressBar
-    labelSpace: QLabel
     pushButtonAccount: QPushButton
 
     def __init__(self, *args, **kwargs):
+        self.debug = kwargs.pop('debug', False)
+
         super().__init__(flags=Qt.Qt.WindowStaysOnTopHint, *args, **kwargs)
         self.tray = SysTray(self)
         self.settings = QSettings()
         self.init_ui()
         self.check_account()
+
+        if self.debug:
+            self._reload = self.startTimer(500)
+
+    def timerEvent(self, e):
+
+        """
+        :param e:
+        :type e: QTimerEvent
+        """
+        if e.timerId() == self._reload:
+            with open('resource/style.qss', 'r') as style:
+                self.setStyleSheet(style.read())
 
     def init_ui(self):
         loadUi('resource/setting.ui', self)
@@ -108,11 +125,9 @@ class SettingBox(QDialog):
             self.progressBarSpace.setDisabled(False)
             self.progressBarSpace.setMaximum(50)
             self.progressBarSpace.setValue(13)
-            self.labelSpace.setVisible(True)
         else:
             self.pushButtonAccount.setText("登录")
             self.progressBarSpace.setVisible(False)
-            self.labelSpace.setVisible(False)
             self.show()
 
     @property
@@ -139,8 +154,8 @@ if __name__ == '__main__':
     app.setOrganizationName('IoNull')
     app.setOrganizationDomain('ionull.com')
     app.setApplicationName('IoBox')
-    with open('resource/style.qss', 'r') as style:
-        app.setStyleSheet(style.read())
-    tray = SettingBox(None)
+
+    tray = SettingBox(None, debug=True)
+
     sys.exit(app.exec_())
 
